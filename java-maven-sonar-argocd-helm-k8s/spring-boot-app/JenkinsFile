@@ -7,10 +7,15 @@ pipeline {
   }
   stages {
     stage('Checkout') {
+      environment{
+            GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
+            GIT_USER_NAME = "DevOps-With-Mantresh"
+      }
       steps {
-        withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]){
-            checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}']]
-            //git branch: 'main', url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero'
+            withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
+                checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}']]
+                //git branch: 'main', url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero'
+        }
       }
     }
     stage('Build and Test') {
