@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        sh 'echo passed'
+        checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero']]`
         //git branch: 'main', url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero'
       }
     }
