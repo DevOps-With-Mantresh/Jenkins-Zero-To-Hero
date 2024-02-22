@@ -12,7 +12,7 @@ pipeline {
                     checkout([$class: 'GitSCM', 
                               branches: [[name: '*/main']], 
                               userRemoteConfigs: [[credentialsId: 'github', 
-                                                   url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero.git']]
+                                                   url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero']]
                              ])
                 }
             }
