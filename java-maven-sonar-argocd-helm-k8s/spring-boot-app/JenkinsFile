@@ -15,6 +15,10 @@ pipeline {
                                                    url: 'https://github.com/DevOps-With-Mantresh/Jenkins-Zero-To-Hero']]
                              ])
                 }
+                // Move files to a subdirectory
+                dir('subdirectory') {
+                    sh 'mv * .* ../'
+                }
             }
         }
         stage('Build and Test') {
