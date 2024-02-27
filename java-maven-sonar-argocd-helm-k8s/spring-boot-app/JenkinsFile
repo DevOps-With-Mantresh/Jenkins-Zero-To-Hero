@@ -62,7 +62,6 @@ pipeline {
                         echo '@target/' >> .gitignore
                         git add .gitignore
                         git commit -m "Added .gitignore to ignore Jenkins auxiliary folders"
-                        git push
                         BUILD_NUMBER=${BUILD_NUMBER}
                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                         git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
