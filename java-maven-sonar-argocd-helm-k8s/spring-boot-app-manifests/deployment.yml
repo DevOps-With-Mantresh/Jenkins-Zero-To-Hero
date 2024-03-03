@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: kmantresh7092/myrepo:2
+        image: kmantresh7092/myrepo:3
         ports:
         - containerPort: 8080
